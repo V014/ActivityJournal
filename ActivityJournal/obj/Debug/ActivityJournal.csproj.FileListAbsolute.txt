@@ -1,0 +1,11 @@
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\bin\Debug\ActivityJournal.exe.config
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\bin\Debug\ActivityJournal.exe
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\bin\Debug\ActivityJournal.pdb
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.csprojAssemblyReference.cache
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.Home.resources
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.Properties.Resources.resources
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.csproj.GenerateResource.cache
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.csproj.CoreCompileInputs.cache
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.exe
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.pdb
+C:\Users\Wanga\Documents\Visual Studio 2019\Projects\ActivityJournal\ActivityJournal\obj\Debug\ActivityJournal.csproj.CopyComplete
