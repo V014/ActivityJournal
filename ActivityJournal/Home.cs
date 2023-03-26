@@ -38,7 +38,7 @@ namespace ActivityJournal
         {
             // load list of activities and drop them in a datagrid
             con.LoadData("SELECT * FROM Activity", datagrid);
-            //dataGrid.Columns[0].Visible = false;
+            dataGrid.Columns[0].Visible = false;
             dataGrid.Columns[6].Visible = false;
         }
         // load tasks
@@ -75,7 +75,7 @@ namespace ActivityJournal
         private void Btn_activity_Click(object sender, EventArgs e)
         {
             Load_Activity(dataGrid);
-            lbl_page.Text = "Activities";
+            lbl_page.Text = "Activity";
         }
         // loads attendence after user click
         private void Btn_attendence_Click(object sender, EventArgs e)
@@ -98,44 +98,100 @@ namespace ActivityJournal
         // adds a new row into the datagrid
         private void Add_Click(object sender, EventArgs e)
         {
-            // Get the data source for the DataGridView control
-            DataTable dataTable = (DataTable)dataGrid.DataSource;
-
-            // Create a new row object for the data source
-            DataRow newRow = dataTable.NewRow();
-            int displayedRowCount = dataGrid.RowCount;
-
-            newRow["ID"] = displayedRowCount + 1;
-
-            // Add the new row to the data source
-            dataTable.Rows.Add(newRow);
+            try
+            {
+                switch (lbl_page.Text)
+                {
+                    case "Activity":
+                        con.ExecuteQuery("INSERT INTO Activity(Name, Stages, Completed, Starting, Ending, Date) VALUES('enter title', 0, 0, 'Date', 'Date', strftime('%Y-%m-%d', 'now'))");
+                        Load_Activity(dataGrid);
+                        break;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
-        private void DataGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
+        private void Btn_apply_Click(object sender, EventArgs e)
         {
             try
             {
-                if (lbl_page.Text == "Activity")
-                {
-                    DataGridViewRow selectedRow = dataGrid.SelectedRows[0];
-                    string id = selectedRow.Cells[0].Value.ToString();
-                    string name = selectedRow.Cells[1].Value.ToString();
-                    string stages = selectedRow.Cells[2].Value.ToString();
-                    string completed = selectedRow.Cells[3].Value.ToString();
-                    string starting = selectedRow.Cells[4].Value.ToString();
-                    string ending = selectedRow.Cells[5].Value.ToString();
+                // collect the ID and declare variables one time
+                DataGridViewRow selectedRow = dataGrid.SelectedRows[0];
+                string id = selectedRow.Cells[0].Value.ToString();
+                string name;
+                string stages;
+                string completed;
+                string starting;
+                string ending;
+                string activityID;
+                string description;
+                string due;
+                string response;
 
-                    con.ExecuteQuery($"UPDATE Activity SET Name = '{name}', Stages = '{stages}', Complete = {completed}, Starting = {starting}, Ending = {ending} WHERE ID = {id}");
-                    //LoadData();
+                // swtich between page title to see which block should run
+                switch (lbl_page.Text){
+                    case "Activity":
+                        name = selectedRow.Cells[1].Value.ToString();
+                        stages = selectedRow.Cells[2].Value.ToString();
+                        completed = selectedRow.Cells[3].Value.ToString();
+                        starting = selectedRow.Cells[4].Value.ToString();
+                        ending = selectedRow.Cells[5].Value.ToString();
+                        con.ExecuteQuery($"UPDATE Activity SET Name = '{name}', Stages = '{stages}', Completed = '{completed}', Starting = '{starting}', Ending = '{ending}' WHERE ID = {id}");
+                        Load_Activity(dataGrid);
+                        break;
+
+                    case "Tasks":
+                        activityID = selectedRow.Cells[1].Value.ToString();
+                        name = selectedRow.Cells[2].Value.ToString();
+                        description = selectedRow.Cells[3].Value.ToString();
+                        due = selectedRow.Cells[4].Value.ToString();
+                        completed = selectedRow.Cells[5].Value.ToString();
+                        con.ExecuteQuery($"UPDATE Tasks SET Name = '{name}', Description = '{description}', Completed = '{completed}' WHERE ID = {id}");
+                        Load_Tasks(dataGrid);
+                        break;
+
+                    case "Attendence":
+                        activityID = selectedRow.Cells[1].Value.ToString();
+                        name = selectedRow.Cells[2].Value.ToString();
+                        description = selectedRow.Cells[3].Value.ToString();
+                        starting = selectedRow.Cells[4].Value.ToString();
+                        ending = selectedRow.Cells[5].Value.ToString();
+                        con.ExecuteQuery($"UPDATE Attendence SET Name = '{name}', Description = '{description}', Starting = '{starting}', Ending = '{ending}' WHERE ID = {id}");
+                        Load_Attendence(dataGrid);
+                        break;
+
+                    case "Research":
+                        activityID = selectedRow.Cells[1].Value.ToString();
+                        name = selectedRow.Cells[2].Value.ToString();
+                        description = selectedRow.Cells[3].Value.ToString();
+                        response = selectedRow.Cells[4].Value.ToString();
+                        con.ExecuteQuery($"UPDATE Research SET Name = '{name}', Description = '{description}', Response = '{response}' WHERE ID = {id}");
+                        Load_Research(dataGrid);
+                        break;
+
+                    case "Stages":
+                        activityID = selectedRow.Cells[1].Value.ToString();
+                        name = selectedRow.Cells[2].Value.ToString();
+                        description = selectedRow.Cells[3].Value.ToString();
+                        completed = selectedRow.Cells[4].Value.ToString();
+                        con.ExecuteQuery($"UPDATE Stages SET Name = '{name}', Description = '{description}', Completed = '{completed}' WHERE ID = {id}");
+                        Load_Stages(dataGrid);
+                        break;
+
+                    default:
+                        MessageBox.Show("App experiencing a navigation problem");
+                        break;
                 }
-                else
-                {
-                    MessageBox.Show("Not detecting page");
-                }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // do nothing
+                MessageBox.Show(ex.ToString());
             }
         }
     }

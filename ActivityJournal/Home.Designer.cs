@@ -48,10 +48,14 @@
             this.refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.delete = new System.Windows.Forms.ToolStripMenuItem();
             this.update = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel_bottom = new System.Windows.Forms.Panel();
+            this.btn_apply = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.panel_nav.SuspendLayout();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.context_Menu.SuspendLayout();
+            this.panel_bottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_nav
@@ -138,6 +142,7 @@
             this.btn_stages.BackColor = System.Drawing.Color.Transparent;
             this.btn_stages.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_stages.FlatAppearance.BorderSize = 0;
+            this.btn_stages.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.btn_stages.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_stages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_stages.ForeColor = System.Drawing.Color.Gray;
@@ -155,6 +160,7 @@
             this.btn_research.BackColor = System.Drawing.Color.Transparent;
             this.btn_research.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_research.FlatAppearance.BorderSize = 0;
+            this.btn_research.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.btn_research.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_research.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_research.ForeColor = System.Drawing.Color.Gray;
@@ -172,6 +178,7 @@
             this.btn_attendence.BackColor = System.Drawing.Color.Transparent;
             this.btn_attendence.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_attendence.FlatAppearance.BorderSize = 0;
+            this.btn_attendence.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.btn_attendence.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_attendence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_attendence.ForeColor = System.Drawing.Color.Gray;
@@ -189,6 +196,7 @@
             this.btn_tasks.BackColor = System.Drawing.Color.Transparent;
             this.btn_tasks.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_tasks.FlatAppearance.BorderSize = 0;
+            this.btn_tasks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.btn_tasks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_tasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_tasks.ForeColor = System.Drawing.Color.Gray;
@@ -206,6 +214,7 @@
             this.btn_activity.BackColor = System.Drawing.Color.Transparent;
             this.btn_activity.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_activity.FlatAppearance.BorderSize = 0;
+            this.btn_activity.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.btn_activity.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_activity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_activity.ForeColor = System.Drawing.Color.Gray;
@@ -251,9 +260,8 @@
             this.dataGrid.Location = new System.Drawing.Point(155, 80);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.Size = new System.Drawing.Size(645, 370);
+            this.dataGrid.Size = new System.Drawing.Size(645, 331);
             this.dataGrid.TabIndex = 3;
-            this.dataGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellLeave);
             // 
             // context_Menu
             // 
@@ -290,6 +298,47 @@
             this.update.Size = new System.Drawing.Size(113, 22);
             this.update.Text = "Update";
             // 
+            // panel_bottom
+            // 
+            this.panel_bottom.Controls.Add(this.btn_apply);
+            this.panel_bottom.Controls.Add(this.btn_cancel);
+            this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_bottom.Location = new System.Drawing.Point(155, 411);
+            this.panel_bottom.Name = "panel_bottom";
+            this.panel_bottom.Size = new System.Drawing.Size(645, 39);
+            this.panel_bottom.TabIndex = 4;
+            // 
+            // btn_apply
+            // 
+            this.btn_apply.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_apply.FlatAppearance.BorderSize = 0;
+            this.btn_apply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_apply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_apply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_apply.ForeColor = System.Drawing.Color.White;
+            this.btn_apply.Location = new System.Drawing.Point(401, 0);
+            this.btn_apply.Name = "btn_apply";
+            this.btn_apply.Size = new System.Drawing.Size(122, 39);
+            this.btn_apply.TabIndex = 0;
+            this.btn_apply.Text = "Apply";
+            this.btn_apply.UseVisualStyleBackColor = true;
+            this.btn_apply.Click += new System.EventHandler(this.Btn_apply_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_cancel.Location = new System.Drawing.Point(523, 0);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(122, 39);
+            this.btn_cancel.TabIndex = 1;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +346,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGrid);
+            this.Controls.Add(this.panel_bottom);
             this.Controls.Add(this.panel_nav);
             this.Controls.Add(this.panel_top);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,6 +358,7 @@
             this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.context_Menu.ResumeLayout(false);
+            this.panel_bottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -333,6 +384,9 @@
         private System.Windows.Forms.ToolStripMenuItem refresh;
         private System.Windows.Forms.ToolStripMenuItem delete;
         private System.Windows.Forms.ToolStripMenuItem update;
+        private System.Windows.Forms.Panel panel_bottom;
+        private System.Windows.Forms.Button btn_apply;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }
 
